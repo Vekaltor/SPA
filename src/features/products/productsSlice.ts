@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { ApiList } from "../../models/ApiList";
 import { ProductResponse } from "../../models/ProductResponse";
-import { RootState } from "../../redux/store";
+import { RootState } from "../../redux-toolkit/store";
 import {
   fetchProducts,
   isApiListResponse,

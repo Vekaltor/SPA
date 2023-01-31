@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import store from "./redux/store";
+import store from "./redux-toolkit/store";
 
 import "./index.css";
 
