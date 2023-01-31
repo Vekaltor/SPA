@@ -1,0 +1,331 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  border-radius: 25px;
+  padding: 70px 10px 50px 10px;
+  margin: 20px;
+  background-color: white;
+}
+
+.list-of-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 80%;
+  height: 260px;
+  border: 1px solid rgba(51, 51, 51, 0.507);
+}
+
+.product-in-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  height: 42px;
+  padding: 0 20px;
+  border-bottom: 1px solid #346cc5b2;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.product-in-list:nth-of-type(even) {
+  background-color: #346cc50c;
+}
+
+.product-in-list.prototype {
+  border-bottom: 1px solid rgba(51, 51, 51, 0.507);
+  cursor: auto;
+  color: #666;
+  font-weight: bold;
+}
+
+.product-in-list .id {
+  width: 100px;
+}
+.product-in-list .name {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.product-in-list .name .color {
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
+  border-radius: 50%;
+  background-color: var(--color);
+}
+
+.product-in-list .year {
+  width: 100px;
+  text-align: right;
+}
+
+.product-in-list.lazy {
+  gap: 0;
+}
+
+.product-in-list .id.lazy-loading {
+  flex-shrink: 0;
+  width: 40px;
+  height: 20px;
+  margin-right: 70px;
+  background-color: rgb(204, 204, 204);
+  background-color: white;
+}
+
+.product-in-list .color.lazy-loading {
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 15px;
+  background-color: rgb(155, 152, 152);
+  background-color: white;
+}
+
+.product-in-list .name.lazy-loading {
+  height: 20px;
+  margin-right: 50px;
+  background-color: rgb(155, 152, 152);
+  background-color: white;
+}
+
+.product-in-list .year.lazy-loading {
+  height: 20px;
+  background-color: rgb(155, 152, 152);
+  background-color: white;
+}
+
+.lazy-loading {
+  opacity: 0.7;
+  animation: loading 1s linear infinite alternate;
+}
+
+@keyframes loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+.paginations {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  padding: 0 20px;
+  margin-top: 20px;
+}
+
+.paginations .btn {
+  width: 120px;
+  padding: 8px 0px;
+  border: none;
+  border-radius: 3px;
+  background-color: #333;
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.paginations .btn:not(.disable):hover {
+  background-color: rgba(51, 51, 51, 0.952);
+}
+
+.paginations .btn.disable {
+  background-color: rgb(180, 180, 180);
+  color: rgb(82, 82, 82);
+  cursor: not-allowed;
+}
+
+.modal-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.modal-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  gap: 20px;
+  width: 60%;
+  padding: 25px;
+  font-size: 14px;
+  background-color: rgba(51, 51, 51, 0.863);
+  transform: translateY(25px);
+}
+
+.modal-container button {
+  width: fit-content;
+  padding: 10px 40px;
+  margin-top: 25px;
+  background-color: #fff;
+  color: #333;
+  border: 0px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 10px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.modal-container button:hover {
+  color: #346cc5;
+}
+
+.modal-container .modal-product {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
+  color: #333;
+}
+
+.modal-container .modal-product > span {
+  display: flex;
+  justify-content: space-between;
+  width: calc(50% - 10px);
+  padding: 10px 20px;
+  background-color: white;
+  color: #333;
+}
+
+.modal-container .modal-product > span.pantone-value {
+  width: 100%;
+}
+
+.modal-container .modal-product > span > span:nth-of-type(1) {
+  text-align: left;
+  font-weight: bold;
+}
+
+.modal-container .modal-product > span > span:nth-of-type(2) {
+  text-align: right;
+}
+
+.number-page {
+  position: absolute;
+  right: 25px;
+  top: 15px;
+  padding: 10px 25px;
+  border-radius: 50% 3px 50% 3px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #333;
+  color: white;
+}
+
+.number-page span {
+  text-transform: lowercase;
+  font-weight: normal;
+}
+
+.wrapper-search-product {
+  width: 80%;
+  margin-bottom: 25px;
+}
+
+.wrapper-search-product .search-product {
+  display: flex;
+  width: 250px;
+}
+
+.wrapper-search-product .search-product .outline {
+  position: relative;
+  width: 190px;
+}
+
+.wrapper-search-product .search-product .outline label {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  color: rgba(0, 0, 0, 0.608);
+  font-size: 14px;
+  transform: translateY(-50%);
+  z-index: 2;
+  transition: 0.2s ease-out;
+}
+
+.wrapper-search-product .search-product .outline input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid rgba(168, 157, 157, 0.808);
+  border-radius: 5px 0 0 5px;
+  font-size: 14px;
+  z-index: 1;
+}
+
+.wrapper-search-product .search-product .outline input:focus {
+  outline-color: #3b71ca;
+}
+
+.wrapper-search-product .search-product .outline input:focus ~ label,
+.wrapper-search-product .search-product .outline input:not([value=""]) ~ label {
+  top: -9px;
+  padding: 0 2px;
+  background-color: white;
+  z-index: 3;
+  font-size: 0.8em;
+  color: #3b71ca;
+  transform: translate(0);
+}
+
+.wrapper-search-product .search-product .btn-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  max-height: 37px;
+  border: 0px;
+  border-radius: 0 5px 5px 0;
+  padding: 10px 0;
+  background-color: #3b71ca;
+  color: white;
+  cursor: pointer;
+}
+
+.wrapper-search-product .search-product .btn-search svg {
+  margin-top: 2px;
+  color: white;
+  font-size: 20px;
+}
+
+.wrapper-search-product .search-product .btn-search:hover {
+  background-color: #346cc5;
+  box-shadow: 0px 5px 20px -7px #3b71ca;
+}
+
+.error-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.error-product span:nth-of-type(1) {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
