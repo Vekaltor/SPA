@@ -1,10 +1,11 @@
 import ListOfProducts from "./features/products/ListOfProducts";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { PRODUCTION_URL } from "./config/PUBLIC_URL";
 
 function App() {
   return (
     <>
-      <Router>
+      <Router basename={PRODUCTION_URL}>
         <Routes>
           <Route path="/">
             <Route index element={<ListOfProducts />} />
