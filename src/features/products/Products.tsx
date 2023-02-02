@@ -6,7 +6,6 @@ import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { ParamsUrlProduct, Product as TProduct } from "../../types/types";
 import { getProducts, updateParamsUrl } from "./productsSlice";
 import { paramsToString } from "../../services/ProductService";
-import { productParams } from "../../constants/params";
 
 import LazyLoadingProduct from "../../components/LazyLoadingProduct";
 import Product from "./Product";
