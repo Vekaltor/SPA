@@ -10,10 +10,10 @@ import { productParams } from "../../constants/params";
 
 import LazyLoadingProduct from "../../components/LazyLoadingProduct";
 import Product from "./Product";
-
-import "./products.css";
 import ProductError from "./ProductError";
 import PrototypeProduct from "../../components/PrototypeProduct";
+
+import "./products.css";
 
 type PropsProducts = {
   openModal: (product: TProduct) => void;
@@ -23,8 +23,9 @@ const Products = (props: PropsProducts) => {
   const [firstLoad, setFirstLoad] = useState(true);
   const { openModal } = props;
   const dispatch = useAppDispatch();
-  const { list, paramsURL, isLoading, error, totalPages, total } =
-    useAppSelector((state) => state.products);
+  const { list, paramsURL, isLoading, error } = useAppSelector(
+    (state) => state.products
+  );
   const { page, perPage, id } = paramsURL;
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -43,14 +44,6 @@ const Products = (props: PropsProducts) => {
     ));
   };
 
-  const areParamsOnStart = (): boolean => {
-    let flag: boolean = false;
-    productParams.forEach((param: string) =>
-      searchParams.get(param) ? (flag = true) : null
-    );
-    return flag;
-  };
-
   const getParamsFromUrl = (): ParamsUrlProduct => {
     return {
       page: searchParams.get("page") ? Number(searchParams.get("page")) : page,
@@ -63,13 +56,10 @@ const Products = (props: PropsProducts) => {
 
   const checkParamsOnStart = (): void => {
     let newParams: ParamsUrlProduct = paramsURL;
-    if (areParamsOnStart() && firstLoad) {
-      setFirstLoad(false);
-      newParams = getParamsFromUrl();
-      if (!isParamsEqual(newParams, paramsURL))
-        dispatch(updateParamsUrl(newParams));
-    }
-    setSearchParams(createSearchParams(paramsToString(paramsURL)));
+    newParams = getParamsFromUrl();
+    if (!isParamsEqual(newParams, paramsURL))
+      dispatch(updateParamsUrl(newParams));
+    setFirstLoad(false);
   };
 
   const isParamsEqual = (
@@ -84,7 +74,8 @@ const Products = (props: PropsProducts) => {
   };
 
   const handleGetProducts = () => {
-    checkParamsOnStart();
+    if (firstLoad) checkParamsOnStart();
+    setSearchParams(createSearchParams(paramsToString(paramsURL)));
     dispatch(getProducts());
   };
 
