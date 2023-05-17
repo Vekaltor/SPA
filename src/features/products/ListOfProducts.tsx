@@ -40,7 +40,7 @@ const ListOfProducts = () => {
         regex="^[0-9]*$"
         search={handleSearch}
       />
-      <Wrapper className="list-of-products">
+      <Wrapper className="list-of-products ">
         <Products openModal={handleOpenModal} />
         <Modal visible={modalVisble} cancel={handleCloseModal}>
           <ModalProduct />
